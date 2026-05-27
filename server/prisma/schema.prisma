@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String      @id @default(cuid())
+  email          String      @unique
+  hashedPassword String
+  displayName    String?
+  createdAt      DateTime    @default(now())
+  portfolios     Portfolio[]
+  watchlists     Watchlist[]
+}
+
+model Portfolio {
+  id              String              @id @default(cuid())
+  userId          String
+  user            User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name            String              @default("Default")
+  cash            Float               @default(100000)
+  startingBalance Float               @default(100000)
+  createdAt       DateTime            @default(now())
+  positions       Position[]
+  orders          Order[]
+  trades          Trade[]
+  snapshots       PortfolioSnapshot[]
+}
+
+model Position {
+  id          String   @id @default(cuid())
+  portfolioId String
+  portfolio   Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+  symbol      String
+  quantity    Float
+  avgCost     Float
+  side        String   @default("LONG")
+  updatedAt   DateTime @updatedAt
+
+  @@unique([portfolioId, symbol])
+}
+
+model Order {
+  id          String    @id @default(cuid())
+  portfolioId String
+  portfolio   Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+  symbol      String
+  type        String    // MARKET, LIMIT, STOP_LOSS, TAKE_PROFIT
+  side        String    // BUY, SELL
+  quantity    Float
+  price       Float?
+  status      String    @default("OPEN")
+  filledAt    DateTime?
+  createdAt   DateTime  @default(now())
+  trades      Trade[]
+}
+
+model Trade {
+  id          String   @id @default(cuid())
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id])
+  portfolioId String
+  portfolio   Portfolio @relation(fields: [portfolioId], references: [id])
+  symbol      String
+  fillPrice   Float
+  fillQty     Float
+  side        String
+  realizedPnl Float    @default(0)
+  createdAt   DateTime @default(now())
+}
+
+model PortfolioSnapshot {
+  id          String   @id @default(cuid())
+  portfolioId String
+  portfolio   Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+  totalValue  Float
+  date        DateTime @default(now())
+}
+
+model Watchlist {
+  id     String          @id @default(cuid())
+  userId String
+  user   User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items  WatchlistItem[]
+}
+
+model WatchlistItem {
+  id          String    @id @default(cuid())
+  watchlistId String
+  watchlist   Watchlist  @relation(fields: [watchlistId], references: [id], onDelete: Cascade)
+  symbol      String
+  alertAbove  Float?
+  alertBelow  Float?
+}

@@ -1,0 +1,11 @@
+node_modules
+dist
+coverage
+.turbo
+.vercel
+.netlify
+client/dist
+server/dist
+*.db
+*.db-journal
+package-lock.json

@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-bg-void: #0A0C0F;
+  --color-bg-base: #131722;
+  --color-bg-surface: #1E222D;
+  --color-bg-elevated: #2A2E39;
+  --color-bg-hover: #363A45;
+  
+  --color-border-primary: rgba(255,255,255,0.06);
+  --color-border-subtle: rgba(255,255,255,0.06);
+  --color-border-focus: rgba(255,255,255,0.18);
+  
+  --color-text-primary: #D1D4DC;
+  --color-text-secondary: #D1D4DC;
+  --color-text-muted: #787B86;
+  --color-text-hint: #4C525E;
+  
+  --color-profit: #26A69A;
+  --color-loss: #EF5350;
+  --color-green: #26A69A;
+  --color-red: #EF5350;
+  --color-accent: #2196F3;
+  --color-warning: #FF9800;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  
+  --animate-fade-in: fade-in 0.3s ease-out;
+  --animate-slide-up: slide-up 0.4s ease-out;
+  --animate-slide-down: slide-down 0.3s ease-out;
+  --animate-scale-in: scale-in 0.2s ease-out;
+  --animate-pulse-slow: pulse-slow 3s ease-in-out infinite;
+  
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slide-down {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+}
+
+:root {
+  --bg-void: #0A0C0F;
+  --bg-base: #131722;
+  --bg-surface: #1E222D;
+  --bg-elevated: #2A2E39;
+  --bg-hover: #363A45;
+  --border: rgba(255,255,255,0.06);
+  --border-focus: rgba(255,255,255,0.18);
+  --text-primary: #D1D4DC;
+  --text-muted: #787B86;
+  --text-hint: #4C525E;
+  --green: #26A69A;
+  --red: #EF5350;
+  --blue: #2196F3;
+  --amber: #FF9800;
+  --purple: #9C27B0;
+  --chart-font-size: 13px;
+}
+
+/* ─── Base Styles ─── */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Custom Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-hover);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-hover) transparent;
+}
+
+/* ─── Selection ─── */
+::selection {
+  background-color: var(--blue);
+  color: white;
+}
+
+/* ─── Focus Styles ─── */
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* ─── TV App Shell Layout ─── */
+.app-shell {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto 48px;
+  grid-template-rows: 48px minmax(0, 1fr) 32px;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: var(--bg-base);
+  color: var(--text-primary);
+}
+.grid-topbar {
+  grid-column: 1 / -1;
+  grid-row: 1;
+}
+.grid-left-toolbar {
+  grid-column: 1;
+  grid-row: 2;
+}
+.grid-chart-area {
+  grid-column: 2;
+  grid-row: 2;
+  overflow: hidden;
+}
+.grid-right-panel {
+  grid-column: 3;
+  grid-row: 2;
+  overflow: hidden;
+  width: 320px;
+}
+.grid-right-rail {
+  grid-column: 4;
+  grid-row: 2;
+}
+.grid-bottom-bar {
+  grid-column: 1 / -1;
+  grid-row: 3;
+}
+
+/* ─── Typography & Helpers ─── */
+.font-mono-numbers {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+.section-head {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.tv-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.tv-button:hover {
+  background: var(--bg-hover);
+}
+.tv-button.active {
+  background: rgba(33, 150, 243, 0.15);
+  color: var(--blue);
+}
+
+/* ─── Old Legacy Classes (To prevent immediate breakage) ─── */
+.glass-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.glass-input {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-primary);
+}
+.glass-input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px rgba(33,150,243,0.15);
+  outline: none;
+}
+.btn-primary {
+  background: var(--blue);
+  color: white;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-primary:hover {
+  background: #1976D2;
+}
+.text-profit { color: var(--green); }
+.text-loss { color: var(--red); }
+.bg-profit { background-color: rgba(38,166,154,0.1); }
+.bg-loss { background-color: rgba(239,83,80,0.1); }
+
+.light {
+  --bg-void: #F0F2F5;
+  --bg-base: #FFFFFF;
+  --bg-surface: #F8F9FA;
+  --bg-elevated: #FFFFFF;
+  --bg-hover: #F0F2F5;
+  --border: rgba(0,0,0,0.1);
+  --border-focus: rgba(0,0,0,0.2);
+  --text-primary: #131722;
+  --text-muted: #787B86;
+  --text-hint: #B2B5BE;
+}
