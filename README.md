@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📈 TerminalAlpha
+# 📈 Trade Desk
 
 ### AI-Powered Trading Terminal & Market Intelligence Platform
 
@@ -15,7 +15,7 @@
 <br/>
 <br/>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0F172A&height=260&section=header&text=TerminalAlpha&fontSize=52&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Advanced%20AI%20Trading%20Terminal%20Platform&descAlignY=58&descAlign=50"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0F172A&height=260&section=header&text=TradeDesk&fontSize=52&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Advanced%20AI%20Trading%20Terminal%20Platform&descAlignY=58&descAlign=50"/>
 
 </div>
 
@@ -23,7 +23,7 @@
 
 # ✨ Overview
 
-**TerminalAlpha** is a modern AI-enhanced trading terminal designed for traders, analysts, and fintech enthusiasts.
+**Trade Desk** is a modern AI-enhanced trading terminal designed for traders, analysts, and fintech enthusiasts.
 
 It combines:
 - 📊 Advanced financial charting
@@ -151,7 +151,6 @@ sequenceDiagram
 | Zustand | State Management |
 | WebSockets | Real-Time Updates |
 | Gemini AI | AI Assistant |
-| OpenRouter | AI Models |
 | Tailwind / CSS | Styling |
 
 ---
@@ -350,7 +349,7 @@ sequenceDiagram
 | Backend API | Railway / Render |
 | Database | Neon PostgreSQL / Supabase |
 | WebSockets | Railway Persistent Services |
-| AI Providers | Gemini + OpenRouter |
+| AI Providers | Gemini |
 | CI/CD | GitHub Actions |
 | Monitoring | UptimeRobot + Railway Metrics |
 
@@ -407,8 +406,7 @@ flowchart LR
 ```env
 VITE_API_URL="https://your-api.example.com/api"
 VITE_WS_URL="wss://your-api.example.com"
-VITE_GEMINI_API_KEY=""
-VITE_OPENROUTER_API_KEY=""
+VITE_GEMINI_API_KEY="your-gemini-api-key-here"
 ```
 
 ---
@@ -562,7 +560,7 @@ the backend is running correctly.
 ## Clone Repository
 
 ```bash
-git clone https://github.com/LoganthP/TerminalAlpha.git
+git clone https://github.com/LoganthP/TradeDesk.git
 ```
 
 ---
@@ -626,29 +624,11 @@ npm run start
 
 ---
 
-# 📊 Trading Features
-
-| Feature | Status |
-|---|---|
-| Portfolio Management | ✅ |
-| Market Orders | ✅ |
-| Pending Orders | ✅ |
-| AI Assistant | ✅ |
-| Chart Persistence | ✅ |
-| WebSocket Updates | ✅ |
-| Watchlists | ✅ |
-| Alerts | ✅ |
-| Responsive UI | ✅ |
-| Lazy Loading | ✅ |
-
----
-
 # 🤖 AI Integration
 
 ## Supported AI Providers
 
 - Gemini API
-- OpenRouter Models
 
 ### AI Features
 - Trading conversations
