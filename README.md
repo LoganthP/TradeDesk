@@ -14,8 +14,6 @@
 
 </div>
 
----
-
 # ✨ Overview
 
 **Trade Desk** is a modern AI-enhanced trading terminal designed for traders, analysts, and fintech enthusiasts.
