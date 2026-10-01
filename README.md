@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📈 Trade Desk
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0F172A&height=260&section=header&text=TradeDesk&fontSize=52&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Advanced%20AI%20Trading%20Terminal%20Platform&descAlignY=58&descAlign=50"/>
 
 ### AI-Powered Trading Terminal & Market Intelligence Platform
 
@@ -11,11 +11,6 @@
 <img src="https://img.shields.io/badge/WebSocket-Realtime-orange?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/Prisma-ORM-black?style=for-the-badge&logo=prisma"/>
 <img src="https://img.shields.io/badge/AI-Powered-red?style=for-the-badge"/>
-
-<br/>
-<br/>
-
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0F172A&height=260&section=header&text=TradeDesk&fontSize=52&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Advanced%20AI%20Trading%20Terminal%20Platform&descAlignY=58&descAlign=50"/>
 
 </div>
 
